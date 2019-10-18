@@ -1,0 +1,45 @@
+import 'dart:async';
+
+class Cake{}
+class Order{
+  String type;
+  Order(this.type);
+}
+
+void main(){
+  
+  final controller = new StreamController();
+  
+  final order = new Order('banana');
+  
+  //Fornaio
+  final baker = StreamTransformer.fromHandlers(
+  handleData: (cakeType, sink){
+    if(cakeType == 'chocoloate'){
+      sink.add(new Cake());
+    } else {
+      sink.addError("I cont' cook this type of cake!!!");
+    }
+  }
+  );
+  //cakeType, cioè il primo argomento, è il valore che noi abbiamo passato allo stream, con il map sul controller.stream
+  //sink, il secondo argomento, è la funzione che aggiunge cakeType allo stream e gli permette di continuare ad andare avanti (se soddisfa la condizione)
+  
+  
+  //Centralino
+  controller.sink.add(order); //L'ordine viene dato al centralino e il centarlino lo passa all'ispettore
+  
+  //Ispettore -> controller.stream.map((order) => order.type);
+  //Passa l'ordine al fornaio -> .transform(baker);
+  //Aggiungi il risultato nell ufficio di ritiro -> .listener()
+  
+  controller.stream
+    .map((order) => order.type) //L'ispettore toglie il superfluo e prende solo il tipo di torta
+    .transform(baker) //L'ordine viene dato al fornaio
+    .listen(
+    (cake) => print('Ecco la tua torta : $cake'),
+    onError: (error) => print(error)
+  ); //Il fornaio controlla il tipo e restituisce la torta se il tipo è 'cioccolata', altrimenti restituisce un errore.
+  
+  
+}
