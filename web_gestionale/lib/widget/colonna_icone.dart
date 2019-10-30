@@ -1,0 +1,165 @@
+import 'package:flutter/material.dart';
+import 'package:web_gestionale/icon_gestionale_icons.dart';
+
+class ColonnaIcone extends StatefulWidget {
+  @override
+  _ColonnaIconeState createState() => _ColonnaIconeState();
+}
+
+class _ColonnaIconeState extends State<ColonnaIcone>
+    with TickerProviderStateMixin {
+  AnimationController _animationController;
+  Animation _colorTween;
+
+  void animationGo() {
+    _animationController =
+        AnimationController(vsync: this, duration: Duration(milliseconds: 100));
+    _colorTween = ColorTween(
+            begin: Colors.black.withOpacity(0),
+            end: Colors.black.withOpacity(1))
+        .animate(_animationController);
+  }
+
+  bool testoIconaVisibile = false;
+  double width = 0.0;
+  bool menuAperto = false;
+  /* List<String> sezioni = [
+    'Home',
+    'Informazioni palestra',
+    'Clienti',
+    'Abbonamenti',
+    'Wuod',
+    'Palinsesto',
+    'Prenotazioni',
+    'Agenda',
+    'Acquisti',
+    'Settings',
+    'Logout',
+    'Statistiche',
+    'Shopping',
+  ]; */
+
+  @override
+  void initState() {
+    animationGo();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        getGufo(),
+        Column(
+          children: <Widget>[
+            getIcona(false, IconGestionale.home, context, 'Home', false),
+            getIcona(false, IconGestionale.information, context,
+                'Informazioni palestra', false),
+            getIcona(false, IconGestionale.users, context, 'Clienti', false),
+            getIcona(
+                false, IconGestionale.layout_1, context, 'Abbonamenti', false),
+            getIcona(false, IconGestionale.kettlebell, context, 'Wuod', false),
+            getIcona(
+                false, IconGestionale.calendar, context, 'Palinsesto', false),
+            getIcona(false, Icons.add, context, 'Prenotazioni', false),
+            getIcona(false, IconGestionale.open_book, context, 'Agenda', false),
+            getIcona(
+                false, IconGestionale.bookmark, context, 'Acquisti', false),
+            getIcona(false, IconGestionale.levels, context, 'Settings', false),
+            getIcona(
+                false, IconGestionale.export_icon, context, 'Logout', false),
+            getIcona(false, IconGestionale.statistiche_cf, context,
+                'Statistiche', false),
+            getIcona(
+                false, IconGestionale.shopping_bag, context, 'Shopping', true),
+          ],
+        )
+      ],
+    );
+  }
+
+  Widget getIcona(bool selected, IconData icona, BuildContext context,
+      String text, bool ultimaIcona) {
+    return InkWell(
+      onTap: () {
+        setState(() {});
+      },
+      child: Row(
+        children: <Widget>[
+          Container(
+            decoration: BoxDecoration(
+                border: Border(
+                    top: BorderSide(width: 1, color: Colors.grey),
+                    bottom: BorderSide(
+                        width: ultimaIcona == true ? 1 : 0,
+                        color: Colors.grey))),
+            height: MediaQuery.of(context).size.height * 0.07,
+            width: MediaQuery.of(context).size.height * 0.07,
+            child: Icon(
+              icona,
+              color: (selected == true) ? Colors.blue : Colors.grey,
+            ),
+          ),
+          AnimatedContainer(
+            decoration: BoxDecoration(
+                border: Border(
+                    right: BorderSide(width: 1, color: Colors.grey),
+                    top: BorderSide(width: 1, color: Colors.grey),
+                    bottom: BorderSide(
+                        width: ultimaIcona == true ? 1 : 0,
+                        color: Colors.grey))),
+            height: MediaQuery.of(context).size.height * 0.07,
+            width: MediaQuery.of(context).size.width * width,
+            duration: Duration(milliseconds: 100),
+            child: Visibility(
+              visible: testoIconaVisibile,
+              child: AnimatedBuilder(
+                animation: _colorTween,
+                builder: (context, child) => Align(
+                    alignment: Alignment.centerLeft,
+                    child:
+                        Text(text, style: TextStyle(color: _colorTween.value))),
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget getGufo() {
+    return InkWell(
+      onTap: () {
+        if (_animationController.status == AnimationStatus.completed) {
+          _animationController.reverse();
+        } else {
+          _animationController.forward();
+        }
+
+        setState(() {
+          if (menuAperto == false) {
+            testoIconaVisibile = true;
+            menuAperto = true;
+            width = 0.1;
+          } else {
+            testoIconaVisibile = false;
+            menuAperto = false;
+            width = 0.0;
+          }
+        });
+      },
+      child: Container(
+        color: Colors.blue,
+        height: MediaQuery.of(context).size.height * 0.07,
+        width: MediaQuery.of(context).size.height * 0.07,
+        child: Center(
+          child: Icon(
+            Icons.android,
+            color: Colors.white,
+          ),
+        ),
+      ),
+    );
+  }
+}
