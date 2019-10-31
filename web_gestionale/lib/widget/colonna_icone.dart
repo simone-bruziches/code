@@ -23,6 +23,7 @@ class _ColonnaIconeState extends State<ColonnaIcone>
   bool testoIconaVisibile = false;
   double width = 0.0;
   bool menuAperto = false;
+  double larghezzaColonnaicone = 0.07;
   /* List<String> sezioni = [
     'Home',
     'Informazioni palestra',
@@ -38,7 +39,6 @@ class _ColonnaIconeState extends State<ColonnaIcone>
     'Statistiche',
     'Shopping',
   ]; */
-
   @override
   void initState() {
     animationGo();
@@ -85,45 +85,49 @@ class _ColonnaIconeState extends State<ColonnaIcone>
       onTap: () {
         setState(() {});
       },
-      child: Row(
-        children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-                border: Border(
-                    top: BorderSide(width: 1, color: Colors.grey),
-                    bottom: BorderSide(
-                        width: ultimaIcona == true ? 1 : 0,
-                        color: Colors.grey))),
-            height: MediaQuery.of(context).size.height * 0.07,
-            width: MediaQuery.of(context).size.height * 0.07,
-            child: Icon(
-              icona,
-              color: (selected == true) ? Colors.blue : Colors.grey,
-            ),
-          ),
-          AnimatedContainer(
-            decoration: BoxDecoration(
-                border: Border(
-                    right: BorderSide(width: 1, color: Colors.grey),
-                    top: BorderSide(width: 1, color: Colors.grey),
-                    bottom: BorderSide(
-                        width: ultimaIcona == true ? 1 : 0,
-                        color: Colors.grey))),
-            height: MediaQuery.of(context).size.height * 0.07,
-            width: MediaQuery.of(context).size.width * width,
-            duration: Duration(milliseconds: 100),
-            child: Visibility(
-              visible: testoIconaVisibile,
-              child: AnimatedBuilder(
-                animation: _colorTween,
-                builder: (context, child) => Align(
-                    alignment: Alignment.centerLeft,
-                    child:
-                        Text(text, style: TextStyle(color: _colorTween.value))),
+      child: AnimatedContainer(
+        duration: Duration(milliseconds: 100),
+        width: MediaQuery.of(context).size.height * larghezzaColonnaicone,
+        child: Row(
+          children: <Widget>[
+            Container(
+              decoration: BoxDecoration(
+                  border: Border(
+                      top: BorderSide(width: 1, color: Colors.grey),
+                      bottom: BorderSide(
+                          width: ultimaIcona == true ? 1 : 0,
+                          color: Colors.grey))),
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.height * 0.07,
+              child: Icon(
+                icona,
+                color: (selected == true) ? Colors.blue : Colors.grey,
               ),
             ),
-          )
-        ],
+            AnimatedContainer(
+              decoration: BoxDecoration(
+                  border: Border(
+                      right: BorderSide(width: 1, color: Colors.grey),
+                      top: BorderSide(width: 1, color: Colors.grey),
+                      bottom: BorderSide(
+                          width: ultimaIcona == true ? 1 : 0,
+                          color: Colors.grey))),
+              height: MediaQuery.of(context).size.height * 0.07,
+              width: MediaQuery.of(context).size.height * width,
+              duration: Duration(milliseconds: 100),
+              child: Visibility(
+                visible: testoIconaVisibile,
+                child: AnimatedBuilder(
+                  animation: _colorTween,
+                  builder: (context, child) => Align(
+                      alignment: Alignment.centerLeft,
+                      child: Text(text,
+                          style: TextStyle(color: _colorTween.value))),
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -141,11 +145,14 @@ class _ColonnaIconeState extends State<ColonnaIcone>
           if (menuAperto == false) {
             testoIconaVisibile = true;
             menuAperto = true;
-            width = 0.1;
+            width = 0.18;
+            larghezzaColonnaicone += 0.18;
+            setState(() {});
           } else {
             testoIconaVisibile = false;
             menuAperto = false;
             width = 0.0;
+            larghezzaColonnaicone -= 0.18;
           }
         });
       },

@@ -19,17 +19,35 @@ class _HomeState extends State<Home> {
   }
 
   Widget getBody() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
+    return Stack(
       children: <Widget>[
-        ColonnaIcone(),
-        Expanded(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[HomeBar(), ClientiAttivi()],
+        Container(
+          margin:
+              EdgeInsets.only(left: MediaQuery.of(context).size.height * 0.07),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    HomeBar(),
+                    Container(
+                      child: Row(
+                        children: <Widget>[Column(), Column()],
+                      ),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
-        )
+        ),
+        Positioned(
+            child: Container(
+          child: ColonnaIcone(),
+        )),
       ],
     );
   }
