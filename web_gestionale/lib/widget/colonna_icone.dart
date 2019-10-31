@@ -29,7 +29,7 @@ class _ColonnaIconeState extends State<ColonnaIcone>
     'Informazioni palestra',
     'Clienti',
     'Abbonamenti',
-    'Wuod',
+    'WOD',
     'Palinsesto',
     'Prenotazioni',
     'Agenda',
