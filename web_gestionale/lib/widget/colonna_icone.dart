@@ -160,12 +160,13 @@ class _ColonnaIconeState extends State<ColonnaIcone>
         });
       },
       child: Container(
-        color: Colors.blue,
+        color: Color(0Xff285575),
         height: MediaQuery.of(context).size.height * 0.07,
         width: MediaQuery.of(context).size.height * 0.07,
         child: Center(
           child: Icon(
-            Icons.android,
+            IconGestionale.owl,
+            size: 40,
             color: Colors.white,
           ),
         ),
