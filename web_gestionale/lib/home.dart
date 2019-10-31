@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:web_gestionale/widget/colonna_icone.dart';
-import 'package:web_gestionale/widget/home/clienti_attivi.dart';
+import 'package:web_gestionale/widget/home/home_body.dart';
 import 'package:web_gestionale/widget/home_bar.dart';
 
 class Home extends StatefulWidget {
@@ -19,36 +19,20 @@ class _HomeState extends State<Home> {
   }
 
   Widget getBody() {
-    return Stack(
-      children: <Widget>[
-        Container(
-          margin:
-              EdgeInsets.only(left: MediaQuery.of(context).size.height * 0.07),
-          child: Row(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: <Widget>[
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    HomeBar(),
-                    Container(
-                      child: Row(
-                        children: <Widget>[Column(), Column()],
-                      ),
-                    )
-                  ],
-                ),
-              )
-            ],
-          ),
-        ),
-        Positioned(
-            child: Container(
-          child: ColonnaIcone(),
-        )),
-      ],
+    return Container(
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: <Widget>[
+          ColonnaIcone(),
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[HomeBar(), HomeBody()],
+            ),
+          )
+        ],
+      ),
     );
   }
 }

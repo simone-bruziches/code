@@ -22,9 +22,8 @@ class _HomeBarState extends State<HomeBar> {
   Widget getBodyBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5))
-      ),
+          color: Colors.white,
+          border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5))),
       child: Row(
         children: <Widget>[
           Flexible(
@@ -42,7 +41,8 @@ class _HomeBarState extends State<HomeBar> {
                           style: TextStyle(
                               color: Colors.blue,
                               fontWeight: FontWeight.bold,
-                              fontSize: 20)),
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.015)),
                     ),
                     SizedBox(
                       width: MediaQuery.of(context).size.width * 0.025,
@@ -55,6 +55,7 @@ class _HomeBarState extends State<HomeBar> {
                             Icons.search,
                             color: Colors.blue,
                           ),
+                          placeholderStyle: TextStyle(fontFamily: 'SSC-Light', color: Colors.grey ),
                           placeholder: 'Cerca Cliente',
                           textCapitalization: TextCapitalization.words,
                           decoration: BoxDecoration(

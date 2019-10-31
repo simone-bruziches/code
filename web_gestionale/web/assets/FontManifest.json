@@ -14,6 +14,79 @@
           "asset": "fonts/IconGestionale.ttf"
         }
       ]
+    },
+    {
+      "family": "SSC-Black",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-Black.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-Bold",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-Bold.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-ExtraBold",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-ExtraBold.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-ExtraLight",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-ExtraLight.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-Light",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-Light.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-Medium",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-Medium.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-Regular",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-Regular.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-SemiBold",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-SemiBold.ttf"
+        }
+      ]
+    },
+    {
+      "family": "SSC-Thin",
+      "fonts": [
+        {
+          "asset": "fonts/SairaSemiCondensed-Thin.ttf"
+        }
+      ]
     }
+    
    
   ]

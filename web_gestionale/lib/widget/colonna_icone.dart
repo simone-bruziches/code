@@ -82,10 +82,13 @@ class _ColonnaIconeState extends State<ColonnaIcone>
   Widget getIcona(bool selected, IconData icona, BuildContext context,
       String text, bool ultimaIcona) {
     return InkWell(
+      hoverColor: Colors.black,
+      splashColor: Colors.grey,
       onTap: () {
         setState(() {});
       },
       child: AnimatedContainer(
+        color: Colors.white.withOpacity(0.95),
         duration: Duration(milliseconds: 100),
         width: MediaQuery.of(context).size.height * larghezzaColonnaicone,
         child: Row(
