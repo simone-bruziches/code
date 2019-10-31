@@ -39,7 +39,7 @@ class _HomeBarState extends State<HomeBar> {
                     IntrinsicWidth(
                       child: Text('Lunedi 30/10/2019',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Color(0Xff285575),
                               fontWeight: FontWeight.bold,
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.015)),

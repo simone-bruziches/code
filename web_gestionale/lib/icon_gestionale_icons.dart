@@ -11,7 +11,7 @@
 ///      fonts:
 ///       - asset: fonts/IconGestionale.ttf
 ///
-/// 
+///
 ///
 import 'package:flutter/widgets.dart';
 
@@ -24,103 +24,142 @@ class IconGestionale {
   static const IconData archive = const IconData(0xe801, fontFamily: _kFontFam);
   static const IconData attach = const IconData(0xe802, fontFamily: _kFontFam);
   static const IconData battery = const IconData(0xe803, fontFamily: _kFontFam);
-  static const IconData bookmark_1 = const IconData(0xe804, fontFamily: _kFontFam);
-  static const IconData bookmark = const IconData(0xe805, fontFamily: _kFontFam);
+  static const IconData bookmark_1 =
+      const IconData(0xe804, fontFamily: _kFontFam);
+  static const IconData bookmark =
+      const IconData(0xe805, fontFamily: _kFontFam);
   static const IconData browser = const IconData(0xe806, fontFamily: _kFontFam);
-  static const IconData calculator = const IconData(0xe807, fontFamily: _kFontFam);
-  static const IconData calendar = const IconData(0xe808, fontFamily: _kFontFam);
+  static const IconData calculator =
+      const IconData(0xe807, fontFamily: _kFontFam);
+  static const IconData calendar =
+      const IconData(0xe808, fontFamily: _kFontFam);
   static const IconData cancel = const IconData(0xe809, fontFamily: _kFontFam);
-  static const IconData cassette = const IconData(0xe80a, fontFamily: _kFontFam);
+  static const IconData cassette =
+      const IconData(0xe80a, fontFamily: _kFontFam);
   static const IconData chat = const IconData(0xe80b, fontFamily: _kFontFam);
   static const IconData clock = const IconData(0xe80c, fontFamily: _kFontFam);
-  static const IconData cloud_computing_1 = const IconData(0xe80d, fontFamily: _kFontFam);
-  static const IconData cloud_computing = const IconData(0xe80e, fontFamily: _kFontFam);
+  static const IconData cloud_computing_1 =
+      const IconData(0xe80d, fontFamily: _kFontFam);
+  static const IconData cloud_computing =
+      const IconData(0xe80e, fontFamily: _kFontFam);
   static const IconData cloud = const IconData(0xe80f, fontFamily: _kFontFam);
   static const IconData coding = const IconData(0xe810, fontFamily: _kFontFam);
-  static const IconData computer = const IconData(0xe811, fontFamily: _kFontFam);
-  static const IconData connection = const IconData(0xe812, fontFamily: _kFontFam);
+  static const IconData computer =
+      const IconData(0xe811, fontFamily: _kFontFam);
+  static const IconData connection =
+      const IconData(0xe812, fontFamily: _kFontFam);
   static const IconData copies = const IconData(0xe813, fontFamily: _kFontFam);
   static const IconData copy = const IconData(0xe814, fontFamily: _kFontFam);
   static const IconData crop = const IconData(0xe815, fontFamily: _kFontFam);
   static const IconData cursor = const IconData(0xe816, fontFamily: _kFontFam);
-  static const IconData download = const IconData(0xe817, fontFamily: _kFontFam);
-  static const IconData expand_1 = const IconData(0xe818, fontFamily: _kFontFam);
+  static const IconData download =
+      const IconData(0xe817, fontFamily: _kFontFam);
+  static const IconData expand_1 =
+      const IconData(0xe818, fontFamily: _kFontFam);
   static const IconData expand = const IconData(0xe819, fontFamily: _kFontFam);
-  static const IconData export_icon = const IconData(0xe81a, fontFamily: _kFontFam);
-  static const IconData fast_forward = const IconData(0xe81b, fontFamily: _kFontFam);
-  static const IconData favorite = const IconData(0xe81c, fontFamily: _kFontFam);
+  static const IconData export_icon =
+      const IconData(0xe81a, fontFamily: _kFontFam);
+  static const IconData fast_forward =
+      const IconData(0xe81b, fontFamily: _kFontFam);
+  static const IconData favorite =
+      const IconData(0xe81c, fontFamily: _kFontFam);
   static const IconData flag = const IconData(0xe81d, fontFamily: _kFontFam);
-  static const IconData folder_1 = const IconData(0xe81e, fontFamily: _kFontFam);
+  static const IconData folder_1 =
+      const IconData(0xe81e, fontFamily: _kFontFam);
   static const IconData folder = const IconData(0xe81f, fontFamily: _kFontFam);
-  static const IconData fullscreen = const IconData(0xe820, fontFamily: _kFontFam);
+  static const IconData fullscreen =
+      const IconData(0xe820, fontFamily: _kFontFam);
   static const IconData grid = const IconData(0xe821, fontFamily: _kFontFam);
   static const IconData home = const IconData(0xe822, fontFamily: _kFontFam);
-  static const IconData hourglass = const IconData(0xe823, fontFamily: _kFontFam);
-  static const IconData information = const IconData(0xe824, fontFamily: _kFontFam);
-  static const IconData kettlebell = const IconData(0xe825, fontFamily: _kFontFam);
+  static const IconData hourglass =
+      const IconData(0xe823, fontFamily: _kFontFam);
+  static const IconData information =
+      const IconData(0xe824, fontFamily: _kFontFam);
+  static const IconData kettlebell =
+      const IconData(0xe825, fontFamily: _kFontFam);
   static const IconData key = const IconData(0xe826, fontFamily: _kFontFam);
-  static const IconData layout_1 = const IconData(0xe827, fontFamily: _kFontFam);
+  static const IconData layout_1 =
+      const IconData(0xe827, fontFamily: _kFontFam);
   static const IconData layout = const IconData(0xe828, fontFamily: _kFontFam);
   static const IconData levels = const IconData(0xe829, fontFamily: _kFontFam);
   static const IconData like = const IconData(0xe82a, fontFamily: _kFontFam);
   static const IconData list = const IconData(0xe82b, fontFamily: _kFontFam);
-  static const IconData location = const IconData(0xe82c, fontFamily: _kFontFam);
+  static const IconData location =
+      const IconData(0xe82c, fontFamily: _kFontFam);
   static const IconData locked = const IconData(0xe82d, fontFamily: _kFontFam);
   static const IconData loupe = const IconData(0xe82e, fontFamily: _kFontFam);
   static const IconData mail = const IconData(0xe82f, fontFamily: _kFontFam);
-  static const IconData megaphone = const IconData(0xe830, fontFamily: _kFontFam);
-  static const IconData message_1 = const IconData(0xe831, fontFamily: _kFontFam);
+  static const IconData megaphone =
+      const IconData(0xe830, fontFamily: _kFontFam);
+  static const IconData message_1 =
+      const IconData(0xe831, fontFamily: _kFontFam);
   static const IconData message = const IconData(0xe832, fontFamily: _kFontFam);
-  static const IconData minimize = const IconData(0xe833, fontFamily: _kFontFam);
-  static const IconData mortarboard = const IconData(0xe834, fontFamily: _kFontFam);
+  static const IconData minimize =
+      const IconData(0xe833, fontFamily: _kFontFam);
+  static const IconData mortarboard =
+      const IconData(0xe834, fontFamily: _kFontFam);
   static const IconData mute = const IconData(0xe835, fontFamily: _kFontFam);
   static const IconData news = const IconData(0xe836, fontFamily: _kFontFam);
   static const IconData next = const IconData(0xe837, fontFamily: _kFontFam);
-  static const IconData open_book = const IconData(0xe838, fontFamily: _kFontFam);
+  static const IconData open_book =
+      const IconData(0xe838, fontFamily: _kFontFam);
   static const IconData pad = const IconData(0xe839, fontFamily: _kFontFam);
   static const IconData pencil = const IconData(0xe83a, fontFamily: _kFontFam);
-  static const IconData photo_camera = const IconData(0xe83b, fontFamily: _kFontFam);
+  static const IconData photo_camera =
+      const IconData(0xe83b, fontFamily: _kFontFam);
   static const IconData picture = const IconData(0xe83c, fontFamily: _kFontFam);
-  static const IconData placeholder = const IconData(0xe83d, fontFamily: _kFontFam);
+  static const IconData placeholder =
+      const IconData(0xe83d, fontFamily: _kFontFam);
   static const IconData play = const IconData(0xe83e, fontFamily: _kFontFam);
   static const IconData plug = const IconData(0xe83f, fontFamily: _kFontFam);
   static const IconData printer = const IconData(0xe840, fontFamily: _kFontFam);
-  static const IconData protection = const IconData(0xe841, fontFamily: _kFontFam);
+  static const IconData protection =
+      const IconData(0xe841, fontFamily: _kFontFam);
   static const IconData refresh = const IconData(0xe842, fontFamily: _kFontFam);
   static const IconData ribbon = const IconData(0xe843, fontFamily: _kFontFam);
   static const IconData save = const IconData(0xe844, fontFamily: _kFontFam);
   static const IconData scale = const IconData(0xe845, fontFamily: _kFontFam);
   static const IconData scroll = const IconData(0xe846, fontFamily: _kFontFam);
-  static const IconData settings = const IconData(0xe847, fontFamily: _kFontFam);
+  static const IconData settings =
+      const IconData(0xe847, fontFamily: _kFontFam);
   static const IconData shield = const IconData(0xe848, fontFamily: _kFontFam);
   static const IconData shop = const IconData(0xe849, fontFamily: _kFontFam);
-  static const IconData shopping_bag = const IconData(0xe84a, fontFamily: _kFontFam);
-  static const IconData shredder = const IconData(0xe84b, fontFamily: _kFontFam);
+  static const IconData shopping_bag =
+      const IconData(0xe84a, fontFamily: _kFontFam);
+  static const IconData shredder =
+      const IconData(0xe84b, fontFamily: _kFontFam);
   static const IconData skip = const IconData(0xe84c, fontFamily: _kFontFam);
   static const IconData sound = const IconData(0xe84d, fontFamily: _kFontFam);
   static const IconData star = const IconData(0xe84e, fontFamily: _kFontFam);
-  static const IconData statistiche_cf = const IconData(0xe84f, fontFamily: _kFontFam);
+  static const IconData statistiche_cf =
+      const IconData(0xe84f, fontFamily: _kFontFam);
   static const IconData stop = const IconData(0xe850, fontFamily: _kFontFam);
-  static const IconData switch_icon = const IconData(0xe851, fontFamily: _kFontFam);
+  static const IconData switch_icon =
+      const IconData(0xe851, fontFamily: _kFontFam);
   static const IconData tab = const IconData(0xe852, fontFamily: _kFontFam);
   static const IconData tabs = const IconData(0xe853, fontFamily: _kFontFam);
   static const IconData tag = const IconData(0xe854, fontFamily: _kFontFam);
   static const IconData target = const IconData(0xe855, fontFamily: _kFontFam);
-  static const IconData television = const IconData(0xe856, fontFamily: _kFontFam);
+  static const IconData television =
+      const IconData(0xe856, fontFamily: _kFontFam);
   static const IconData ticket = const IconData(0xe857, fontFamily: _kFontFam);
   static const IconData trash = const IconData(0xe858, fontFamily: _kFontFam);
-  static const IconData unlocked = const IconData(0xe859, fontFamily: _kFontFam);
+  static const IconData unlocked =
+      const IconData(0xe859, fontFamily: _kFontFam);
   static const IconData upload = const IconData(0xe85a, fontFamily: _kFontFam);
   static const IconData user_1 = const IconData(0xe85b, fontFamily: _kFontFam);
   static const IconData user_2 = const IconData(0xe85c, fontFamily: _kFontFam);
   static const IconData user = const IconData(0xe85d, fontFamily: _kFontFam);
   static const IconData users = const IconData(0xe85e, fontFamily: _kFontFam);
-  static const IconData video_camera = const IconData(0xe85f, fontFamily: _kFontFam);
+  static const IconData video_camera =
+      const IconData(0xe85f, fontFamily: _kFontFam);
   static const IconData visible = const IconData(0xe860, fontFamily: _kFontFam);
   static const IconData volume = const IconData(0xe861, fontFamily: _kFontFam);
   static const IconData windows = const IconData(0xe862, fontFamily: _kFontFam);
   static const IconData wrench = const IconData(0xe863, fontFamily: _kFontFam);
   static const IconData write = const IconData(0xe864, fontFamily: _kFontFam);
   static const IconData zoom_in = const IconData(0xe865, fontFamily: _kFontFam);
-  static const IconData zoom_out = const IconData(0xe866, fontFamily: _kFontFam);
+  static const IconData zoom_out =
+      const IconData(0xe866, fontFamily: _kFontFam);
+  static const IconData owl = const IconData(0xe867, fontFamily: _kFontFam);
 }
