@@ -22,7 +22,6 @@ class _HomeBarState extends State<HomeBar> {
   Widget getBodyBar(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: Colors.white,
           border: Border(bottom: BorderSide(color: Colors.grey, width: 0.5))),
       child: Row(
         children: <Widget>[

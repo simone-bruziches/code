@@ -38,7 +38,6 @@ class _CardScadenzeItemState extends State<CardScadenzeItem> {
         ),
         subtitle: Text(
           widget.messaggio,
-          overflow: TextOverflow.fade,
           style: TextStyle(
             color: Colors.grey,
             fontFamily: 'SSC-Light',

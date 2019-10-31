@@ -26,7 +26,6 @@ class _CertMediciListItemState extends State<CertMediciListItem> {
         leading: CircleAvatar(
           radius: MediaQuery.of(context).size.height * 0.03,
           backgroundImage: NetworkImage(widget.imgPath),
-          backgroundColor: Colors.transparent,
         ),
         title: Text(
           widget.nome,
@@ -37,7 +36,6 @@ class _CertMediciListItemState extends State<CertMediciListItem> {
         ),
         subtitle: Text(
           widget.messaggio,
-          overflow: TextOverflow.fade,
           style: TextStyle(
             color: Colors.grey,
             fontFamily: 'SSC-Light',
