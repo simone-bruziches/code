@@ -65,7 +65,7 @@ class _TableCheckInItemState extends State<TableCheckInItem> {
                 child: Center(
                   child: Text(widget.orario,
                       style: TextStyle(
-                          color: Colors.blue,
+                          color: Theme.of(context).primaryColor,
                           fontWeight: FontWeight.bold,
                           fontSize: MediaQuery.of(context).size.width * 0.012)),
                 ),

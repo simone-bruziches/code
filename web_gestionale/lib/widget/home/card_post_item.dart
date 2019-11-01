@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:web_gestionale/icon_gestionale_icons.dart';
 
-class CardScadenzeItem extends StatefulWidget {
+class CardPostItem extends StatelessWidget {
   String imgPath;
   String nome;
   String messaggio;
-  String data;
 
-  CardScadenzeItem(
+  CardPostItem(
       {@required this.imgPath,
       @required this.nome,
       @required this.messaggio,
-      @required this.data});
-  @override
-  _CardScadenzeItemState createState() => _CardScadenzeItemState();
-}
+      });
+  
 
-class _CardScadenzeItemState extends State<CardScadenzeItem> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,35 +22,25 @@ class _CardScadenzeItemState extends State<CardScadenzeItem> {
         contentPadding: EdgeInsets.all(0),
         leading: CircleAvatar(
           radius: MediaQuery.of(context).size.height * 0.03,
-          backgroundImage: NetworkImage(widget.imgPath),
+          backgroundImage: NetworkImage(imgPath),
           backgroundColor: Colors.transparent,
         ),
         title: Text(
-          widget.nome,
+          nome,
           style: TextStyle(
             color: Colors.grey[700],
             fontFamily: 'SSC-Regular',
           ),
         ),
         subtitle: Text(
-          widget.messaggio,
+          messaggio,
           overflow: TextOverflow.fade,
           style: TextStyle(
             color: Colors.grey,
             fontFamily: 'SSC-Light',
           ),
         ),
-        trailing: Column(
-          mainAxisAlignment: MainAxisAlignment.end,
-          children: <Widget>[
-            Icon(IconGestionale.shopping_bag),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.01,),
-            Text(
-              widget.data,
-              style: TextStyle(color: Colors.grey, fontSize: 10),
-            )
-          ],
-        ),
+        trailing: Icon(IconGestionale.pencil, color: Colors.grey, size: 20,),
       ),
     );
   }

@@ -20,6 +20,7 @@ class _HomeState extends State<Home> {
 
   Widget getBody() {
     return Container(
+      color: Theme.of(context).backgroundColor,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: <Widget>[

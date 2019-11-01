@@ -2,7 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_gestionale/icon_gestionale_icons.dart';
 import 'package:web_gestionale/widget/home/card_list_item.dart';
+import 'package:web_gestionale/widget/home/card_messaggi_item.dart';
+import 'package:web_gestionale/widget/home/card_notificheNonLette_item.dart';
+import 'package:web_gestionale/widget/home/card_post_item.dart';
 import 'package:web_gestionale/widget/home/card_scadenze_item.dart';
+import 'package:web_gestionale/widget/home/card_wod_faceList_item.dart';
 import 'package:web_gestionale/widget/home/certMedici_list_item.dart';
 import 'package:web_gestionale/widget/home/nextCorsi_list_item.dart';
 import 'package:web_gestionale/widget/home/table_checkIn_item.dart';
@@ -12,7 +16,50 @@ class HomeBody extends StatefulWidget {
   _HomeBodyState createState() => _HomeBodyState();
 }
 
+class FaceItemOriginal {
+  String path;
+  FaceItemOriginal({this.path});
+}
+
 class _HomeBodyState extends State<HomeBody> {
+  List<CardWodFaceListItem> wodFaceList = [];
+  List<FaceItemOriginal> faceListOriginal = [
+    FaceItemOriginal(path: 'https://randomuser.me/api/portraits/men/61.jpg'),
+    FaceItemOriginal(path: 'https://randomuser.me/api/portraits/men/32.jpg'),
+    FaceItemOriginal(path: 'https://randomuser.me/api/portraits/women/57.jpg'),
+    FaceItemOriginal(
+        path:
+            'https://images.pexels.com/photos/274595/pexels-photo-274595.jpeg?h=350&auto=compress&cs=tinysrgb'),
+    FaceItemOriginal(
+        path:
+            'https://images-na.ssl-images-amazon.com/images/M/MV5BMTU4NTM1MTExOF5BMl5BanBnXkFtZTcwMTYwODMyMw@@._V1_UY256_CR2,0,172,256_AL_.jpg'),
+    FaceItemOriginal(
+        path:
+            'https://pbs.twimg.com/profile_images/1031854842690641920/J1mZY1TY.jpg'),
+    FaceItemOriginal(
+        path:
+            'https://pbs.twimg.com/profile_images/1012952090518450176/2bvuFyb8.jpg'),
+    FaceItemOriginal(
+        path:
+            'https://images-na.ssl-images-amazon.com/images/M/MV5BN2I4Mzg3MWQtM2JlNy00ODQxLThhMGItZTFlNWFhOTIzNzY4XkEyXkFqcGdeQXVyNTEwNTA1Njg@._V1_UY256_CR103,0,172,256_AL_.jpg'),
+  ];
+
+  getWodFaceList(List<FaceItemOriginal> items) {
+    for (int i = 0; i < items.length; i++) {
+      double leftMargin = i * 25.0;
+      wodFaceList.add(CardWodFaceListItem(
+        imgPath: items[i].path,
+        leftMargin: leftMargin,
+      ));
+    }
+  }
+
+  @override
+  void initState() {
+    getWodFaceList(faceListOriginal);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -57,6 +104,7 @@ class _HomeBodyState extends State<HomeBody> {
       getCardCheckIn(),
       Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Expanded(child: getCardWod()),
           Expanded(child: getCardScadenze()),
@@ -67,7 +115,11 @@ class _HomeBodyState extends State<HomeBody> {
 
   Widget getColonnaDestra() {
     return Column(
-      children: <Widget>[getCardPost(), getCardCertificatiMedici()],
+      children: <Widget>[
+        getCardPost(),
+        getCardMessaggi(),
+        getCardNotificheNonLette()
+      ],
     );
   }
 
@@ -81,13 +133,13 @@ class _HomeBodyState extends State<HomeBody> {
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.01,
             vertical: MediaQuery.of(context).size.height * 0.025),
-        height: MediaQuery.of(context).size.height * 0.5,
+        height: MediaQuery.of(context).size.height * 0.45,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('Scadenze',
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: MediaQuery.of(context).size.width * 0.015)),
             Expanded(
@@ -148,55 +200,94 @@ class _HomeBodyState extends State<HomeBody> {
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.01,
             vertical: MediaQuery.of(context).size.height * 0.025),
-        height: MediaQuery.of(context).size.height * 0.5,
+        height: MediaQuery.of(context).size.height * 0.45,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Text('WOD',
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: MediaQuery.of(context).size.width * 0.015)),
             Expanded(
-              child: ListView(
-                children: <Widget>[
-                  CertMediciListItem(
-                    imgPath:
-                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                    nome: 'Marco Rossi',
-                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
-                  ),
-                  CertMediciListItem(
-                    imgPath:
-                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                    nome: 'Marco Rossi',
-                    messaggio:
-                        'Deiocinowcnoi i if i3oi oi oiewr oinio nn hu  oi nooi ro e',
-                    data: '12/10/2020',
-                  ),
-                  CertMediciListItem(
-                    imgPath:
-                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                    nome: 'Marco Rossi',
-                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
-                  ),
-                  CertMediciListItem(
-                    imgPath:
-                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                    nome: 'Marco Rossi',
-                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
-                  ),
-                  CertMediciListItem(
-                    imgPath:
-                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                    nome: 'Marco Rossi',
-                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
-                  ),
-                ],
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.01,
+                    vertical: MediaQuery.of(context).size.height * 0.025),
+                margin: EdgeInsets.only(top: 20),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 0.5, color: Colors.grey)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Barbara',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.012)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: Colors.grey, width: 0.5)),
+                              child: Icon(
+                                Icons.clear,
+                                color: Colors.red,
+                                size: 15,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: Colors.grey, width: 0.5)),
+                              child: Icon(
+                                IconGestionale.pencil,
+                                color: Theme.of(context).primaryColor,
+                                size: 15,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Text('5 rounds for time',
+                        style: TextStyle(color: Colors.grey)),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Text('20 Pull-ups', style: TextStyle(color: Colors.grey)),
+                    Text('20 Push-ups', style: TextStyle(color: Colors.grey)),
+                    Text('40 Site-ups', style: TextStyle(color: Colors.grey)),
+                    Text('50 Squats', style: TextStyle(color: Colors.grey)),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Text('34 prestazioni inserite',
+                        style: TextStyle(color: Colors.grey)),
+                    SizedBox(
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
+                    Expanded(
+                      child: Stack(children: wodFaceList),
+                    )
+                  ],
+                ),
               ),
             )
           ],
@@ -219,48 +310,59 @@ class _HomeBodyState extends State<HomeBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text('Post',
-                style: TextStyle(
-                    color: Colors.blue,
-                    fontWeight: FontWeight.bold,
-                    fontSize: MediaQuery.of(context).size.width * 0.015)),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text('Post',
+                    style: TextStyle(
+                        color: Theme.of(context).primaryColor,
+                        fontWeight: FontWeight.bold,
+                        fontSize: MediaQuery.of(context).size.width * 0.015)),
+                Container(
+                  height: 25,
+                  child: FlatButton(
+                    color: Theme.of(context).primaryColor,
+                    child: Text(
+                      '+   Nuovo',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {},
+                  ),
+                ),
+              ],
+            ),
             Expanded(
               child: ListView(
                 children: <Widget>[
-                  CertMediciListItem(
+                  CardPostItem(
                     imgPath: 'https://randomuser.me/api/portraits/men/64.jpg',
                     nome: 'Marco Rossi',
                     messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
                   ),
-                  CertMediciListItem(
+                  CardPostItem(
                     imgPath:
                         'https://tinyfac.es/data/avatars/E0B4CAB3-F491-4322-BEF2-208B46748D4A-200w.jpeg',
                     nome: 'Marco Rossi',
                     messaggio:
                         'Deiocinowcnoi i if i3oi oi oiewr oinio nn hu  oi nooi ro e',
-                    data: '12/10/2020',
                   ),
-                  CertMediciListItem(
+                  CardPostItem(
                     imgPath:
                         'https://images.pexels.com/photos/355164/pexels-photo-355164.jpeg?h=350&auto=compress&cs=tinysrgb',
                     nome: 'Marco Rossi',
                     messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
                   ),
-                  CertMediciListItem(
+                  CardPostItem(
                     imgPath:
                         'https://images.pexels.com/photos/227294/pexels-photo-227294.jpeg?h=350&auto=compress&cs=tinysrgb',
                     nome: 'Marco Rossi',
                     messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
                   ),
-                  CertMediciListItem(
+                  CardPostItem(
                     imgPath:
                         'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
                     nome: 'Marco Rossi',
                     messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
-                    data: '12/10/2020',
                   ),
                 ],
               ),
@@ -331,6 +433,131 @@ class _HomeBodyState extends State<HomeBody> {
     );
   }
 
+  Widget getCardMessaggi() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      ),
+      elevation: 1,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.01,
+            vertical: MediaQuery.of(context).size.height * 0.025),
+        height: MediaQuery.of(context).size.height * 0.5,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Messaggi',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.width * 0.015)),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  CardMessaggiItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nome: 'Marco Rossi',
+                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
+                    data: '12/10/2020',
+                  ),
+                  CardMessaggiItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nome: 'Marco Rossi',
+                    messaggio:
+                        'Deiocinowcnoi i if i3oi oi oiewr oinio nn hu  oi nooi ro e',
+                    data: '12/10/2020',
+                  ),
+                  CardMessaggiItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nome: 'Marco Rossi',
+                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
+                    data: '12/10/2020',
+                  ),
+                  CardMessaggiItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nome: 'Marco Rossi',
+                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
+                    data: '12/10/2020',
+                  ),
+                  CardMessaggiItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nome: 'Marco Rossi',
+                    messaggio: 'Deiocinowcnoi i if i3oi oi oie e',
+                    data: '12/10/2020',
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getCardNotificheNonLette() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      ),
+      elevation: 1,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.01,
+            vertical: MediaQuery.of(context).size.height * 0.025),
+        height: MediaQuery.of(context).size.height * 0.5,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('Notifiche non lette',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.width * 0.015)),
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                  CardNotificheNonLetteItem(
+                    messaggio: 'Hai una notifica da leggere, hbdwcvewvlwuirif ',
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget getCardCertificatiMedici() {
     return Card(
       shape: RoundedRectangleBorder(
@@ -347,7 +574,7 @@ class _HomeBodyState extends State<HomeBody> {
           children: <Widget>[
             Text('Certificati Medici',
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: MediaQuery.of(context).size.width * 0.015)),
             Expanded(
@@ -414,7 +641,7 @@ class _HomeBodyState extends State<HomeBody> {
           children: <Widget>[
             Text('Prossimi Corsi',
                 style: TextStyle(
-                    color: Colors.blue,
+                    color: Theme.of(context).primaryColor,
                     fontWeight: FontWeight.bold,
                     fontSize: MediaQuery.of(context).size.width * 0.015)),
             Expanded(
@@ -481,7 +708,7 @@ class _HomeBodyState extends State<HomeBody> {
               children: <Widget>[
                 Text('Check In',
                     style: TextStyle(
-                        color: Colors.blue,
+                        color: Theme.of(context).primaryColor,
                         fontWeight: FontWeight.bold,
                         fontSize: MediaQuery.of(context).size.width * 0.015)),
                 IntrinsicWidth(
@@ -528,7 +755,7 @@ class _HomeBodyState extends State<HomeBody> {
                       alignment: Alignment.centerLeft,
                       child: Text('Cliente',
                           style: TextStyle(
-                              color: Colors.blue,
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.011)),
@@ -542,7 +769,7 @@ class _HomeBodyState extends State<HomeBody> {
                   child: Center(
                     child: Text('Orario',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.011)),
@@ -555,7 +782,7 @@ class _HomeBodyState extends State<HomeBody> {
                   child: Center(
                     child: Text('Abbonamento',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.011)),
@@ -568,7 +795,7 @@ class _HomeBodyState extends State<HomeBody> {
                   child: Center(
                     child: Text('Att. Medico',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.011)),
@@ -581,7 +808,7 @@ class _HomeBodyState extends State<HomeBody> {
                   child: Center(
                     child: Text('Iscrizione',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.011)),
@@ -594,7 +821,7 @@ class _HomeBodyState extends State<HomeBody> {
                   child: Center(
                     child: Text('Rate',
                         style: TextStyle(
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.011)),
