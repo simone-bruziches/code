@@ -39,7 +39,7 @@ class _HomeBarState extends State<HomeBar> {
                     IntrinsicWidth(
                       child: Text('Lunedi 30/10/2019',
                           style: TextStyle(
-                              color: Color(0Xff285575),
+                              color: Theme.of(context).primaryColor,
                               fontWeight: FontWeight.bold,
                               fontSize:
                                   MediaQuery.of(context).size.width * 0.015)),
@@ -53,9 +53,10 @@ class _HomeBarState extends State<HomeBar> {
                         child: CupertinoTextField(
                           prefix: Icon(
                             Icons.search,
-                            color: Colors.blue,
+                            color: Theme.of(context).primaryColor,
                           ),
-                          placeholderStyle: TextStyle(fontFamily: 'SSC-Light', color: Colors.grey ),
+                          placeholderStyle: TextStyle(
+                              fontFamily: 'SSC-Light', color: Colors.grey),
                           placeholder: 'Cerca Cliente',
                           textCapitalization: TextCapitalization.words,
                           decoration: BoxDecoration(
@@ -69,6 +70,7 @@ class _HomeBarState extends State<HomeBar> {
                 ),
                 Icon(
                   IconGestionale.alert,
+                  color: Theme.of(context).primaryColor,
                   size: 20,
                 )
               ],
