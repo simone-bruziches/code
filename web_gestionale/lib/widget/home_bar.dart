@@ -58,6 +58,8 @@ class _HomeBarState extends State<HomeBar> {
                           placeholderStyle: TextStyle(
                               fontFamily: 'SSC-Light', color: Colors.grey),
                           placeholder: 'Cerca Cliente',
+                          style: TextStyle(
+                              fontFamily: 'SSC-Light', color: Colors.black),
                           textCapitalization: TextCapitalization.words,
                           decoration: BoxDecoration(
                               borderRadius: new BorderRadius.all(
@@ -106,9 +108,9 @@ class _HomeBarState extends State<HomeBar> {
                       children: <Widget>[
                         Text(
                           'Shaggy Fitness',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: MediaQuery.of(context).size.height * 0.02),
                         ),
-                        Text('Type something'),
+                        Text('Type something', style: TextStyle(color: Colors.grey[600], fontSize: MediaQuery.of(context).size.height * 0.015)),
                       ],
                     ),
                   )

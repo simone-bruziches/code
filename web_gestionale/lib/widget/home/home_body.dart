@@ -1,10 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:web_gestionale/icon_gestionale_icons.dart';
-import 'package:web_gestionale/widget/home/card_list_item.dart';
+import 'package:web_gestionale/widget/home/card_abbonamenti_venduti.dart';
+import 'package:web_gestionale/widget/home/card_clienti_attivi.dart';
 import 'package:web_gestionale/widget/home/card_messaggi_item.dart';
 import 'package:web_gestionale/widget/home/card_notificheNonLette_item.dart';
+import 'package:web_gestionale/widget/home/card_numero_prove.dart';
 import 'package:web_gestionale/widget/home/card_post_item.dart';
+import 'package:web_gestionale/widget/home/card_ricavo.dart';
 import 'package:web_gestionale/widget/home/card_scadenze_item.dart';
 import 'package:web_gestionale/widget/home/card_wod_faceList_item.dart';
 import 'package:web_gestionale/widget/home/certMedici_list_item.dart';
@@ -263,8 +266,8 @@ class _HomeBodyState extends State<HomeBody> {
                       ],
                     ),
                     SizedBox(
-                            height: MediaQuery.of(context).size.height * 0.01,
-                          ),
+                      height: MediaQuery.of(context).size.height * 0.01,
+                    ),
                     Expanded(
                       child: ListView(
                         children: <Widget>[
@@ -289,7 +292,8 @@ class _HomeBodyState extends State<HomeBody> {
                           SizedBox(
                             height: MediaQuery.of(context).size.height * 0.01,
                           ),
-                          Container(height: 50, child: Stack(children: wodFaceList))
+                          Container(
+                              height: 50, child: Stack(children: wodFaceList))
                         ],
                       ),
                     ),
@@ -492,56 +496,16 @@ class _HomeBodyState extends State<HomeBody> {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
         Expanded(
-          child: CardListItem(
-            icona: Icon(
-              IconGestionale.users,
-              size: MediaQuery.of(context).size.height * 0.04,
-              color: Colors.grey[600],
-            ),
-            titolo: "Clienti attivi",
-            numero: "800",
-            percentuale: 20,
-            aumento: true,
-          ),
+          child: CardClientiAttivi(),
         ),
         Expanded(
-          child: CardListItem(
-            icona: Icon(
-              IconGestionale.open_book,
-              size: MediaQuery.of(context).size.height * 0.04,
-              color: Colors.grey[600],
-            ),
-            titolo: "Numero prove",
-            numero: "250",
-            percentuale: 23,
-            aumento: true,
-          ),
+          child: CardNumeroProve(),
         ),
         Expanded(
-          child: CardListItem(
-            icona: Icon(
-              IconGestionale.layout_1,
-              size: MediaQuery.of(context).size.height * 0.04,
-              color: Colors.grey[600],
-            ),
-            titolo: "Abbonamenti venduti",
-            numero: "600",
-            percentuale: 13,
-            aumento: false,
-          ),
+          child: CardAbbonamentiVenduti(),
         ),
         Expanded(
-          child: CardListItem(
-            icona: Text('€',
-                style: TextStyle(
-                  fontSize: MediaQuery.of(context).size.height * 0.04,
-                  color: Colors.grey[600],
-                )),
-            titolo: "Ricavo",
-            numero: "42,350",
-            percentuale: 28,
-            aumento: true,
-          ),
+          child: Cardricavo(),
         ),
       ],
     );
@@ -829,6 +793,8 @@ class _HomeBodyState extends State<HomeBody> {
                   child: Container(
                     width: MediaQuery.of(context).size.width * 0.1,
                     child: CupertinoTextField(
+                      style: TextStyle(
+                          fontFamily: 'SSC-Light', color: Colors.black),
                       placeholderStyle: TextStyle(
                           fontFamily: 'SSC-Light', color: Colors.grey),
                       placeholder: 'N° Tessera',
