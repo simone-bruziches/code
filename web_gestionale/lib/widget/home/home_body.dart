@@ -218,6 +218,119 @@ class _HomeBodyState extends State<HomeBody> {
                 decoration: BoxDecoration(
                     border: Border.all(width: 0.5, color: Colors.grey)),
                 child: Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('Barbara',
+                            style: TextStyle(
+                                color: Theme.of(context).primaryColor,
+                                fontWeight: FontWeight.bold,
+                                fontSize:
+                                    MediaQuery.of(context).size.width * 0.012)),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: Colors.grey, width: 0.5)),
+                              child: Icon(
+                                Icons.clear,
+                                color: Colors.red,
+                                size: 15,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 10,
+                            ),
+                            Container(
+                              padding: EdgeInsets.all(3),
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(5),
+                                  border: Border.all(
+                                      color: Colors.grey, width: 0.5)),
+                              child: Icon(
+                                IconGestionale.pencil,
+                                color: Theme.of(context).primaryColor,
+                                size: 15,
+                              ),
+                            )
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                    Expanded(
+                      child: ListView(
+                        children: <Widget>[
+                          Text('5 rounds for time',
+                              style: TextStyle(color: Colors.grey)),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          Text('20 Pull-ups',
+                              style: TextStyle(color: Colors.grey)),
+                          Text('20 Push-ups',
+                              style: TextStyle(color: Colors.grey)),
+                          Text('40 Site-ups',
+                              style: TextStyle(color: Colors.grey)),
+                          Text('50 Squats',
+                              style: TextStyle(color: Colors.grey)),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          Text('34 prestazioni inserite',
+                              style: TextStyle(color: Colors.grey)),
+                          SizedBox(
+                            height: MediaQuery.of(context).size.height * 0.01,
+                          ),
+                          Container(height: 50, child: Stack(children: wodFaceList))
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget getCardWod2() {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5),
+      ),
+      elevation: 1,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+            horizontal: MediaQuery.of(context).size.width * 0.01,
+            vertical: MediaQuery.of(context).size.height * 0.025),
+        height: MediaQuery.of(context).size.height * 0.45,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text('WOD',
+                style: TextStyle(
+                    color: Theme.of(context).primaryColor,
+                    fontWeight: FontWeight.bold,
+                    fontSize: MediaQuery.of(context).size.width * 0.015)),
+            Expanded(
+              child: Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.01,
+                    vertical: MediaQuery.of(context).size.height * 0.025),
+                margin: EdgeInsets.only(top: 20),
+                decoration: BoxDecoration(
+                    border: Border.all(width: 0.5, color: Colors.grey)),
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Row(
@@ -283,13 +396,14 @@ class _HomeBodyState extends State<HomeBody> {
                     SizedBox(
                       height: MediaQuery.of(context).size.height * 0.01,
                     ),
-                    Expanded(
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.1,
                       child: Stack(children: wodFaceList),
                     )
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
       ),
@@ -736,13 +850,13 @@ class _HomeBodyState extends State<HomeBody> {
   }
 
   Widget getTableCheckIn() {
-    return Container(
-      margin: EdgeInsets.symmetric(
-          vertical: MediaQuery.of(context).size.height * 0.02),
-      child: Column(
-        children: <Widget>[
-          Container(
-            child: Row(
+    return Expanded(
+      child: Container(
+        margin: EdgeInsets.symmetric(
+            vertical: MediaQuery.of(context).size.height * 0.02),
+        child: Column(
+          children: <Widget>[
+            Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Expanded(
@@ -829,71 +943,70 @@ class _HomeBodyState extends State<HomeBody> {
                 ),
               ],
             ),
-          ),
-          Container(
-            height: 250,
-            child: ListView(
-              children: <Widget>[
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-                TableCheckInItem(
-                  imgPath:
-                      'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
-                  nomeCliente: 'Marco Rossi',
-                  orario: "16:44:09",
-                  abbonamento: true,
-                ),
-              ],
+            Expanded(
+              child: ListView(
+                children: <Widget>[
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                  TableCheckInItem(
+                    imgPath:
+                        'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
+                    nomeCliente: 'Marco Rossi',
+                    orario: "16:44:09",
+                    abbonamento: true,
+                  ),
+                ],
+              ),
             ),
-          )
-        ],
+          ],
+        ),
       ),
     );
   }
