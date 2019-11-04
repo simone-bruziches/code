@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:web_gestionale/bloc/colonna_icone_navigation_bloc.dart';
 import 'package:web_gestionale/icon_gestionale_icons.dart';
+import 'package:web_gestionale/screens/clienti_screen.dart';
 
 class ColonnaIcone extends StatefulWidget {
   @override
@@ -53,26 +55,36 @@ class _ColonnaIconeState extends State<ColonnaIcone>
         getGufo(),
         Column(
           children: <Widget>[
-            getIcona(false, IconGestionale.home, context, 'Home', false),
+            getIcona(false, IconGestionale.home, context, 'Home', false,
+                blocScreenBody.getHomeScreen),
             getIcona(false, IconGestionale.information, context,
-                'Informazioni palestra', false),
-            getIcona(false, IconGestionale.users, context, 'Clienti', false),
-            getIcona(
-                false, IconGestionale.layout_1, context, 'Abbonamenti', false),
-            getIcona(false, IconGestionale.kettlebell, context, 'Wuod', false),
-            getIcona(
-                false, IconGestionale.calendar, context, 'Palinsesto', false),
-            getIcona(false, Icons.add, context, 'Prenotazioni', false),
-            getIcona(false, IconGestionale.open_book, context, 'Agenda', false),
-            getIcona(
-                false, IconGestionale.bookmark, context, 'Acquisti', false),
-            getIcona(false, IconGestionale.levels, context, 'Settings', false),
-            getIcona(
-                false, IconGestionale.export_icon, context, 'Logout', false),
+                'Informazioni palestra', false, () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ClientiScreen()),
+              );
+            }),
+            getIcona(false, IconGestionale.users, context, 'Clienti', false,
+                blocScreenBody.getClientiScreen),
+            getIcona(false, IconGestionale.layout_1, context, 'Abbonamenti',
+                false, () {}),
+            getIcona(false, IconGestionale.kettlebell, context, 'Wuod', false,
+                () {}),
+            getIcona(false, IconGestionale.calendar, context, 'Palinsesto',
+                false, () {}),
+            getIcona(false, Icons.add, context, 'Prenotazioni', false, () {}),
+            getIcona(false, IconGestionale.open_book, context, 'Agenda', false,
+                () {}),
+            getIcona(false, IconGestionale.bookmark, context, 'Acquisti', false,
+                () {}),
+            getIcona(false, IconGestionale.levels, context, 'Settings', false,
+                () {}),
+            getIcona(false, IconGestionale.export_icon, context, 'Logout',
+                false, () {}),
             getIcona(false, IconGestionale.statistiche_cf, context,
-                'Statistiche', false),
-            getIcona(
-                false, IconGestionale.shopping_bag, context, 'Shopping', true),
+                'Statistiche', false, () {}),
+            getIcona(false, IconGestionale.shopping_bag, context, 'Shopping',
+                true, () {}),
           ],
         )
       ],
@@ -80,13 +92,11 @@ class _ColonnaIconeState extends State<ColonnaIcone>
   }
 
   Widget getIcona(bool selected, IconData icona, BuildContext context,
-      String text, bool ultimaIcona) {
+      String text, bool ultimaIcona, Function function) {
     return InkWell(
       hoverColor: Colors.black,
       splashColor: Colors.grey,
-      onTap: () {
-        setState(() {});
-      },
+      onTap: function,
       child: AnimatedContainer(
         color: Colors.white.withOpacity(0.95),
         duration: Duration(milliseconds: 100),

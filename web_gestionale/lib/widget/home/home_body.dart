@@ -917,7 +917,7 @@ class _HomeBodyState extends State<HomeBody> {
                         'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
                     nomeCliente: 'Marco Rossi',
                     orario: "16:44:09",
-                    abbonamento: true,
+                    abbonamento: false,
                   ),
                   TableCheckInItem(
                     imgPath:
@@ -931,7 +931,7 @@ class _HomeBodyState extends State<HomeBody> {
                         'https://pbs.twimg.com/profile_images/2452384114/noplz47r59v1uxvyg8ku.png',
                     nomeCliente: 'Marco Rossi',
                     orario: "16:44:09",
-                    abbonamento: true,
+                    abbonamento: false,
                   ),
                   TableCheckInItem(
                     imgPath:

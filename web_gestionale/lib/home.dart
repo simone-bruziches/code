@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:web_gestionale/bloc/colonna_icone_navigation_bloc.dart';
+import 'package:web_gestionale/screens/clienti_screen.dart';
 import 'package:web_gestionale/widget/colonna_icone.dart';
 import 'package:web_gestionale/widget/home/home_body.dart';
 import 'package:web_gestionale/widget/home_bar.dart';
@@ -9,6 +11,14 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  
+
+  @override
+  void initState() {
+   
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -29,11 +39,49 @@ class _HomeState extends State<Home> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
-              children: <Widget>[HomeBar(), HomeBody()],
+              children: <Widget>[
+                HomeBar(),
+                StreamBuilder(
+                    initialData: 0,
+                    stream: blocScreenBody.screenBody,
+                    builder: (context, AsyncSnapshot<int> snapshot) {
+                      return snapshot.hasData
+                          ? bodyScreen(snapshot.data)
+                          : Text('Errore ricarica');
+                    }),
+              ],
             ),
           )
         ],
       ),
     );
+  }
+
+  Widget bodyScreen(int page) {
+    switch (page) {
+      case 0:
+        {
+          return HomeBody();
+        }
+        break;
+
+      case 1:
+        {
+          return HomeBody();
+        }
+        break;
+
+      case 2:
+        {
+          return ClientiScreen();
+        }
+        break;
+
+      default:
+        {
+          return HomeBody();
+        }
+        break;
+    }
   }
 }
