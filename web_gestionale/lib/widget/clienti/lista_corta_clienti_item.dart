@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:web_gestionale/models/cliente_model.dart';
 import 'package:web_gestionale/screens/clienti_screen.dart';
+import 'package:web_gestionale/widget/badge.dart';
+import 'package:web_gestionale/widget/badge_3_dots.dart';
 
 class ListaCortaClientiItem extends StatefulWidget {
   Cliente cliente;
@@ -58,14 +60,13 @@ class _ListaCortaClientiItemState extends State<ListaCortaClientiItem> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: <Widget>[
-                      getBadge(
-                          context,
-                          widget.cliente.stato ? Colors.green : Colors.red,
-                          widget.cliente.stato ? 'Accettato' : 'Bloccato',
-                          widget.sizeText),
-                      getBadge(
-                          context, Colors.orange, 'Alert', widget.sizeText),
-                      get3Dots(context)
+                      Badge(
+                        coloreBtn:
+                            widget.cliente.stato ? Colors.green : Colors.red,
+                        text: widget.cliente.stato ? 'Accettato' : 'Bloccato',
+                      ),
+                      Badge(coloreBtn: Colors.orange, text: 'Alert'),
+                      Badge3Dots()
                     ],
                   ),
                 )

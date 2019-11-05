@@ -34,6 +34,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.01),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(10),
@@ -42,7 +44,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 ),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: SizedBox(
                     child: Text('Codice',
                         maxLines: 1,
@@ -59,7 +62,7 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                   color: Colors.blue.withOpacity(0.1),
                   height: MediaQuery.of(context).size.height * heightHeaderItem,
                   child: Align(
-                    alignment: Alignment.centerLeft,
+                  alignment: Alignment.centerLeft,
                     child: Text('Nome',
                         style: TextStyle(
                             color: Theme.of(context).primaryColor,
@@ -73,7 +76,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: SizedBox(
                     child: Text('Prezzo',
                         maxLines: 1,
@@ -89,7 +93,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: SizedBox(
                     child: Text('Tipo Personal',
                         maxLines: 1,
@@ -105,7 +110,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: SizedBox(
                     child: Text('di Prova',
                         maxLines: 1,
@@ -121,7 +127,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text('Data inizio',
                       style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -134,7 +141,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text('Data fine',
                       style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -147,7 +155,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text('Bloccato',
                       style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -160,7 +169,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 color: Colors.blue.withOpacity(0.1),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text('Alert',
                       style: TextStyle(
                           color: Theme.of(context).primaryColor,
@@ -170,6 +180,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                 ),
               ),
               Container(
+                padding: EdgeInsets.symmetric(
+                    horizontal: MediaQuery.of(context).size.width * 0.01),
                 decoration: BoxDecoration(
                     color: Colors.blue.withOpacity(0.1),
                     borderRadius: BorderRadius.only(
@@ -177,7 +189,8 @@ class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
                         bottomRight: Radius.circular(10))),
                 width: MediaQuery.of(context).size.width * widthHeaderItem,
                 height: MediaQuery.of(context).size.height * heightHeaderItem,
-                child: Center(
+                child: Align(
+                  alignment: Alignment.centerLeft,
                   child: Text('Azioni',
                       style: TextStyle(
                           color: Theme.of(context).primaryColor,

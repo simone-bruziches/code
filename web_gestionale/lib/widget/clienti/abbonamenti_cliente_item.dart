@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:web_gestionale/models/abbonamento_cliente_model.dart';
+import 'package:web_gestionale/widget/badge.dart';
+import 'package:web_gestionale/widget/badge_3_dots.dart';
 
 class AbbonamentiClienteItem extends StatefulWidget {
   AbbonamentoCliente item;
@@ -21,6 +23,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.01),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
@@ -28,7 +32,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               ),
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: SizedBox(
                   child: Text(widget.item.codice,
                       maxLines: 1,
@@ -59,7 +64,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: SizedBox(
                   child: Text(widget.item.prezzo,
                       maxLines: 1,
@@ -73,7 +79,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: SizedBox(
                   child: Text(widget.item.tipoPersonal ? 'Si' : 'No',
                       maxLines: 1,
@@ -87,7 +94,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: SizedBox(
                   child: Text(widget.item.diProva ? 'Si' : 'No',
                       maxLines: 1,
@@ -101,7 +109,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: Text(widget.item.dataInizio,
                     style: TextStyle(
                         color: colorTextItem,
@@ -112,7 +121,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: Text(widget.item.dataFine,
                     style: TextStyle(
                         color: colorTextItem,
@@ -123,7 +133,8 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
+              child: Align(
+                alignment: Alignment.centerLeft,
                 child: Text(widget.item.bloccato ? "Si" : "No",
                     style: TextStyle(
                         color: colorTextItem,
@@ -134,19 +145,22 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
             Container(
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(
-                child:
-                    getBadge(context, Colors.orange, 'Alert', sizeHeaderText),
+              child: Align(
+                alignment: Alignment.centerLeft,
+                child: Badge(coloreBtn: Colors.orange, text: 'Alert'),
               ),
             ),
             Container(
+              padding: EdgeInsets.symmetric(
+                  horizontal: MediaQuery.of(context).size.width * 0.01),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
                       topRight: Radius.circular(10),
                       bottomRight: Radius.circular(10))),
               width: MediaQuery.of(context).size.width * widthHeaderItem,
               height: MediaQuery.of(context).size.height * heightHeaderItem,
-              child: Center(child: get3Dots(context)),
+              child:
+                  Align(alignment: Alignment.centerLeft, child: Badge3Dots()),
             ),
           ],
         ),
@@ -155,43 +169,6 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
           color: Colors.grey,
         )
       ],
-    );
-  }
-
-  Widget get3Dots(BuildContext context) {
-    return Container(
-      width: MediaQuery.of(context).size.height * 0.05,
-      margin: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: Colors.blue.withOpacity(0.24),
-          borderRadius: BorderRadius.circular(5)),
-      padding: EdgeInsets.all(5),
-      child: Center(
-        child: Icon(
-          Icons.more_horiz,
-        ),
-      ),
-    );
-  }
-
-  Widget getBadge(
-      BuildContext context, Color coloreBtn, String text, double sizeText) {
-    return Container(
-      width: MediaQuery.of(context).size.width * 0.05,
-      margin: EdgeInsets.all(10),
-      decoration: BoxDecoration(
-          color: coloreBtn.withOpacity(0.24),
-          borderRadius: BorderRadius.circular(5)),
-      padding: EdgeInsets.all(5),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-              fontSize: MediaQuery.of(context).size.width * sizeText,
-              fontWeight: FontWeight.bold,
-              color: coloreBtn),
-        ),
-      ),
     );
   }
 }

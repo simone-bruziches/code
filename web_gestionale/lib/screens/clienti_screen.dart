@@ -3,6 +3,7 @@ import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 import 'package:web_gestionale/bloc/clienti_screen_bloc.dart';
 import 'package:web_gestionale/models/cliente_model.dart';
 import 'package:web_gestionale/widget/badge.dart';
+import 'package:web_gestionale/widget/badge_3_dots.dart';
 import 'package:web_gestionale/widget/clienti/grafici_cliente.dart';
 import 'package:web_gestionale/widget/clienti/info_cliente.dart';
 import 'package:web_gestionale/widget/clienti/tab_attivita_cliente.dart';
@@ -13,9 +14,7 @@ class ClientiScreen extends StatefulWidget {
 }
 
 class _ClientiScreenState extends State<ClientiScreen> {
-  bool short = false;
   double sizeTextTableItem = 0.009;
-  double sizeText2 = 0.007;
   Color colorText = Colors.black;
 
   List<Cliente> liistaClienti = [
@@ -64,7 +63,7 @@ class _ClientiScreenState extends State<ClientiScreen> {
     return StreamBuilder(
       stream: blocClientiScreen.listaLenght,
       initialData: false,
-      builder: (context, snapshot) {
+      builder: (context, AsyncSnapshot<bool> snapshot) {
         return snapshot.hasData
             ? Expanded(
                 child: snapshot.data == false
@@ -443,52 +442,20 @@ class _ClientiScreenState extends State<ClientiScreen> {
               width: MediaQuery.of(context).size.width * 0.08,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: get3Dots(context),
+                child: Badge3Dots(),
               ),
             ),
           ],
         ),
-        Container(width: double.infinity, height: 0.5, color: Colors.grey[300], margin: EdgeInsets.symmetric(horizontal: 40),)
+        Container(
+          width: double.infinity,
+          height: 0.5,
+          color: Colors.grey[300],
+          margin: EdgeInsets.symmetric(horizontal: 40),
+        )
       ],
     );
   }
-}
-
-Widget get3Dots(BuildContext context) {
-  return Container(
-    width: MediaQuery.of(context).size.height * 0.05,
-    height: MediaQuery.of(context).size.height * 0.05,
-    decoration: BoxDecoration(
-        color: Colors.blue.withOpacity(0.24),
-        borderRadius: BorderRadius.circular(5)),
-    padding: EdgeInsets.all(5),
-    child: Center(
-      child: Icon(
-        Icons.more_horiz,
-      ),
-    ),
-  );
-}
-
-Widget getBadge(
-    BuildContext context, Color coloreBtn, String text, double sizeText) {
-  return Container(
-    width: MediaQuery.of(context).size.width * 0.05,
-    margin: EdgeInsets.all(10),
-    decoration: BoxDecoration(
-        color: coloreBtn.withOpacity(0.24),
-        borderRadius: BorderRadius.circular(5)),
-    padding: EdgeInsets.all(5),
-    child: Center(
-      child: Text(
-        text,
-        style: TextStyle(
-            fontSize: MediaQuery.of(context).size.width * sizeText,
-            fontWeight: FontWeight.bold,
-            color: coloreBtn),
-      ),
-    ),
-  );
 }
 
 Widget getListaItemShort(
@@ -509,10 +476,11 @@ Widget getListaItemShort(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            getBadge(context, cliente.stato ? Colors.green : Colors.red,
-                cliente.stato ? 'Accettato' : 'Bloccato', sizeText),
-            getBadge(context, Colors.orange, 'Alert', sizeText),
-            get3Dots(context)
+            Badge(
+                coloreBtn: cliente.stato ? Colors.green : Colors.red,
+                text: cliente.stato ? 'Accettato' : 'Bloccato'),
+            Badge(coloreBtn: Colors.orange, text: 'Alert'),
+            Badge3Dots()
           ],
         ),
       ),
