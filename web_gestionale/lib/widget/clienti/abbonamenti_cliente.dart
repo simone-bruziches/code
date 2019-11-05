@@ -10,7 +10,7 @@ class AbbonamentiCliente extends StatefulWidget {
 
 class _AbbonamentiClienteState extends State<AbbonamentiCliente> {
   double sizeHeaderText = 0.007;
-  double widthHeaderItem = 0.038;
+  double widthHeaderItem = 0.045;
   double heightHeaderItem = 0.06;
 
   @override

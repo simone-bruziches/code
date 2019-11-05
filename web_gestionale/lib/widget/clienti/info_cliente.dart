@@ -25,7 +25,9 @@ class _InfoClienteState extends State<InfoCliente> {
                       borderRadius: BorderRadius.all(Radius.circular(5))),
                   height: MediaQuery.of(context).size.height * 0.3,
                   child: Image.network(
-                    snapshot.data.imgPath,
+                    snapshot.hasData
+                        ? snapshot.data.imgPath
+                        : 'https://cdn3.iconfinder.com/data/icons/social-messaging-productivity-6/128/profile-male-circle2-512.png',
                     fit: BoxFit.cover,
                     height: MediaQuery.of(context).size.height * 0.3,
                     width: double.infinity,
@@ -42,7 +44,7 @@ class _InfoClienteState extends State<InfoCliente> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        snapshot.data.nome,
+                        snapshot.hasData ? snapshot.data.nome : 'Nome utente',
                         style: TextStyle(
                             color: Theme.of(context).primaryColor,
                             fontWeight: FontWeight.bold,
@@ -50,7 +52,7 @@ class _InfoClienteState extends State<InfoCliente> {
                                 MediaQuery.of(context).size.width * 0.012),
                       ),
                       Text(
-                        snapshot.data.email,
+                        snapshot.hasData ? snapshot.data.email : 'Email utente',
                         style: TextStyle(
                             color: Colors.grey,
                             fontSize:
@@ -62,15 +64,17 @@ class _InfoClienteState extends State<InfoCliente> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                          snapshot.data.stato
-                              ? Badge(
-                                  coloreBtn: Colors.green,
-                                  text: 'Accettato',
-                                )
-                              : Badge(
-                                  coloreBtn: Colors.red,
-                                  text: 'Bloccato',
-                                ),
+                          snapshot.hasData
+                              ? snapshot.data.stato
+                                  ? Badge(
+                                      coloreBtn: Colors.green,
+                                      text: 'Accettato',
+                                    )
+                                  : Badge(
+                                      coloreBtn: Colors.red,
+                                      text: 'Bloccato',
+                                    )
+                              : Text("Stato utente"),
                           SizedBox(
                             width: MediaQuery.of(context).size.width * 0.02,
                           ),
@@ -113,7 +117,6 @@ class _InfoClienteState extends State<InfoCliente> {
                       SizedBox(
                         height: MediaQuery.of(context).size.height * 0.02,
                       ),
-
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: <Widget>[
@@ -123,7 +126,6 @@ class _InfoClienteState extends State<InfoCliente> {
                                   fontWeight: FontWeight.bold,
                                   fontSize: MediaQuery.of(context).size.width *
                                       0.01)),
-                          
                           Text('Iscrizione, scade il 29/10/2019',
                               style: TextStyle(
                                   color: Colors.grey,

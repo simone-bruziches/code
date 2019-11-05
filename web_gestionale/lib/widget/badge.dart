@@ -6,17 +6,19 @@ class Badge extends StatelessWidget {
   Badge({this.coloreBtn, this.text});
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30,
-      decoration: BoxDecoration(
-          color: coloreBtn.withOpacity(0.24),
-          borderRadius: BorderRadius.circular(5)),
-      padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
-      child: Center(
-        child: Text(
-          text,
-          style: TextStyle(
-              fontSize: 10, fontWeight: FontWeight.bold, color: coloreBtn),
+    return FittedBox(
+          child: Container(
+        height: 30,
+        decoration: BoxDecoration(
+            color: coloreBtn.withOpacity(0.24),
+            borderRadius: BorderRadius.circular(5)),
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 20),
+        child: Center(
+          child: Text(
+            text,
+            style: TextStyle(
+                fontSize: 10, fontWeight: FontWeight.bold, color: coloreBtn),
+          ),
         ),
       ),
     );

@@ -10,7 +10,7 @@ class AbbonamentiClienteItem extends StatefulWidget {
 
 class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
   double sizeHeaderText = 0.007;
-  double widthHeaderItem = 0.038;
+  double widthHeaderItem = 0.045;
   double heightHeaderItem = 0.06;
   Color colorTextItem = Colors.grey;
   @override

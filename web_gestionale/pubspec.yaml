@@ -25,6 +25,7 @@ dependencies:
   cupertino_icons: ^0.1.2
   rxdart: ^0.22.5
   flutter_staggered_animations: "^0.1.2"
+  charts_flutter: ^0.8.1
   
 
 
