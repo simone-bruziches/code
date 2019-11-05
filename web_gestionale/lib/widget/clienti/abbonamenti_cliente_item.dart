@@ -3,18 +3,15 @@ import 'package:web_gestionale/models/abbonamento_cliente_model.dart';
 import 'package:web_gestionale/widget/badge.dart';
 import 'package:web_gestionale/widget/badge_3_dots.dart';
 
-class AbbonamentiClienteItem extends StatefulWidget {
-  AbbonamentoCliente item;
+class AbbonamentiClienteItem extends StatelessWidget {
+  final AbbonamentoCliente item;
   AbbonamentiClienteItem({this.item});
-  @override
-  _AbbonamentiClienteItemState createState() => _AbbonamentiClienteItemState();
-}
 
-class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
-  double sizeHeaderText = 0.007;
-  double widthHeaderItem = 0.045;
-  double heightHeaderItem = 0.06;
-  Color colorTextItem = Colors.grey;
+  final double sizeHeaderText = 0.007;
+  final double widthHeaderItem = 0.045;
+  final double heightHeaderItem = 0.06;
+  final Color colorTextItem = Colors.grey;
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -35,7 +32,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
-                  child: Text(widget.item.codice,
+                  child: Text(item.codice,
                       maxLines: 1,
                       style: TextStyle(
                           color: colorTextItem,
@@ -51,7 +48,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
                 child: Align(
                   alignment: Alignment.centerLeft,
                   child: SizedBox(
-                    child: Text(widget.item.nome,
+                    child: Text(item.nome,
                         maxLines: 1,
                         style: TextStyle(
                             color: colorTextItem,
@@ -67,7 +64,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
-                  child: Text(widget.item.prezzo,
+                  child: Text(item.prezzo,
                       maxLines: 1,
                       style: TextStyle(
                           color: colorTextItem,
@@ -82,7 +79,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
-                  child: Text(widget.item.tipoPersonal ? 'Si' : 'No',
+                  child: Text(item.tipoPersonal ? 'Si' : 'No',
                       maxLines: 1,
                       style: TextStyle(
                           color: colorTextItem,
@@ -97,7 +94,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               child: Align(
                 alignment: Alignment.centerLeft,
                 child: SizedBox(
-                  child: Text(widget.item.diProva ? 'Si' : 'No',
+                  child: Text(item.diProva ? 'Si' : 'No',
                       maxLines: 1,
                       style: TextStyle(
                           color: colorTextItem,
@@ -111,7 +108,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               height: MediaQuery.of(context).size.height * heightHeaderItem,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(widget.item.dataInizio,
+                child: Text(item.dataInizio,
                     style: TextStyle(
                         color: colorTextItem,
                         fontSize: MediaQuery.of(context).size.width *
@@ -123,7 +120,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               height: MediaQuery.of(context).size.height * heightHeaderItem,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(widget.item.dataFine,
+                child: Text(item.dataFine,
                     style: TextStyle(
                         color: colorTextItem,
                         fontSize: MediaQuery.of(context).size.width *
@@ -135,7 +132,7 @@ class _AbbonamentiClienteItemState extends State<AbbonamentiClienteItem> {
               height: MediaQuery.of(context).size.height * heightHeaderItem,
               child: Align(
                 alignment: Alignment.centerLeft,
-                child: Text(widget.item.bloccato ? "Si" : "No",
+                child: Text(item.bloccato ? "Si" : "No",
                     style: TextStyle(
                         color: colorTextItem,
                         fontSize: MediaQuery.of(context).size.width *
